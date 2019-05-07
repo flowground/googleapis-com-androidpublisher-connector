@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "maxResults": {
+            "type": "integer"
+        },
+        "packageName": {
+            "required": true,
+            "type": "string"
+        },
+        "startIndex": {
+            "type": "integer"
+        },
+        "token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

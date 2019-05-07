@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "editId": {
+            "required": true,
+            "type": "string"
+        },
+        "imageId": {
+            "required": true,
+            "type": "string"
+        },
+        "imageType": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "featureGraphic",
+                "icon",
+                "phoneScreenshots",
+                "promoGraphic",
+                "sevenInchScreenshots",
+                "tenInchScreenshots",
+                "tvBanner",
+                "tvScreenshots",
+                "wearScreenshots"
+            ]
+        },
+        "language": {
+            "required": true,
+            "type": "string"
+        },
+        "packageName": {
+            "required": true,
+            "type": "string"
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

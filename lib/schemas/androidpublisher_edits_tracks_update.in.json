@@ -1,0 +1,86 @@
+{
+    "type": "object",
+    "properties": {
+        "editId": {
+            "required": true,
+            "type": "string"
+        },
+        "packageName": {
+            "required": true,
+            "type": "string"
+        },
+        "track": {
+            "required": true,
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "releases": {
+                    "description": "A list of all active releases in this track during a read request. On an update request, it represents desired changes.",
+                    "items": {
+                        "properties": {
+                            "name": {
+                                "description": "The release name, used to identify this release in the Play Console UI. Not required to be unique. This is optional, if not set it will be generated from the version_name in the APKs.",
+                                "type": "string"
+                            },
+                            "releaseNotes": {
+                                "description": "The description of what is new in the app in this release.",
+                                "items": {
+                                    "properties": {
+                                        "language": {
+                                            "description": "The language code, in BCP 47 format (eg \"en-US\").",
+                                            "type": "string"
+                                        },
+                                        "text": {
+                                            "description": "The text in the given `language`.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            },
+                            "status": {
+                                "description": "The desired status of this release.",
+                                "type": "string"
+                            },
+                            "userFraction": {
+                                "description": "Fraction of users who are eligible to receive the release. 0 < fraction < 1. To be set, release status must be \"inProgress\" or \"halted\".",
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "versionCodes": {
+                                "description": "A list of all version codes of APKs that will be exposed to the users of this track when this release is rolled out. Note that this list should contain all versions you wish to be active, including those you wish to retain from previous releases.",
+                                "items": {
+                                    "format": "int64",
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "track": {
+                    "description": "Identifier for this track.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

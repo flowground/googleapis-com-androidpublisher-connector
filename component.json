@@ -1,0 +1,928 @@
+{
+    "title": "Google Play Developer",
+    "description": "Accesses Android application developers' Google Play accounts.",
+    "docsUrl": "https://developers.google.com/android-publisher",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/androidpublisher/v3/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://www.googleapis.com/androidpublisher/v3/applications",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "androidpublisher_edits_insert": {
+            "main": "./lib/actions/androidpublisher_edits_insert.js",
+            "title": "Creates a new edit for an app, populated with the app's current state.",
+            "description": "Creates a new edit for an app, populated with the app's current state.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_delete": {
+            "main": "./lib/actions/androidpublisher_edits_delete.js",
+            "title": "Deletes an edit for an app. Creating a new edit will automatically delete any of your previous edits so this method need only be called if you want to preemptively abandon an edit.",
+            "description": "Deletes an edit for an app. Creating a new edit will automatically delete any of your previous edits so this method need only be called if you want to preemptively abandon an edit.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_get": {
+            "main": "./lib/actions/androidpublisher_edits_get.js",
+            "title": "Returns information about the edit specified. Calls will fail if the edit is no long active (e.g. has been deleted, superseded or expired).",
+            "description": "Returns information about the edit specified. Calls will fail if the edit is no long active (e.g. has been deleted, superseded or expired).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_apks_list": {
+            "main": "./lib/actions/androidpublisher_edits_apks_list.js",
+            "title": "androidpublisher_edits_apks_list",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_apks_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_apks_upload": {
+            "main": "./lib/actions/androidpublisher_edits_apks_upload.js",
+            "title": "androidpublisher_edits_apks_upload",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_apks_upload.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_apks_addexternallyhosted": {
+            "main": "./lib/actions/androidpublisher_edits_apks_addexternallyhosted.js",
+            "title": "Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to enterprises using Google Play for Work whose application is configured to restrict distribution to the enterprise domain.",
+            "description": "Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to enterprises using Google Play for Work whose application is configured to restrict distribution to the enterprise domain.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_apks_addexternallyhosted.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_deobfuscationfiles_upload": {
+            "main": "./lib/actions/androidpublisher_edits_deobfuscationfiles_upload.js",
+            "title": "Uploads the deobfuscation file of the specified APK. If a deobfuscation file already exists, it will be replaced.",
+            "description": "Uploads the deobfuscation file of the specified APK. If a deobfuscation file already exists, it will be replaced.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_deobfuscationfiles_upload.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_expansionfiles_get": {
+            "main": "./lib/actions/androidpublisher_edits_expansionfiles_get.js",
+            "title": "Fetches the Expansion File configuration for the APK specified.",
+            "description": "Fetches the Expansion File configuration for the APK specified.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_expansionfiles_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_expansionfiles_patch": {
+            "main": "./lib/actions/androidpublisher_edits_expansionfiles_patch.js",
+            "title": "Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method. This method supports patch semantics.",
+            "description": "Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_expansionfiles_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_expansionfiles_upload": {
+            "main": "./lib/actions/androidpublisher_edits_expansionfiles_upload.js",
+            "title": "Uploads and attaches a new Expansion File to the APK specified.",
+            "description": "Uploads and attaches a new Expansion File to the APK specified.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_expansionfiles_upload.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_expansionfiles_update": {
+            "main": "./lib/actions/androidpublisher_edits_expansionfiles_update.js",
+            "title": "Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method.",
+            "description": "Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_expansionfiles_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_bundles_list": {
+            "main": "./lib/actions/androidpublisher_edits_bundles_list.js",
+            "title": "androidpublisher_edits_bundles_list",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_bundles_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_bundles_upload": {
+            "main": "./lib/actions/androidpublisher_edits_bundles_upload.js",
+            "title": "Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout of 2 minutes is recommended). See: https://developers.google.com/api-client-library/java/google-api-java-client/errors for an example in java.",
+            "description": "Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout of 2 minutes is recommended). See: https://developers.google.com/api-client-library/java/google-api-java-client/errors for an example in java.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_bundles_upload.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_details_get": {
+            "main": "./lib/actions/androidpublisher_edits_details_get.js",
+            "title": "Fetches app details for this edit. This includes the default language and developer support contact information.",
+            "description": "Fetches app details for this edit. This includes the default language and developer support contact information.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_details_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_details_patch": {
+            "main": "./lib/actions/androidpublisher_edits_details_patch.js",
+            "title": "Updates app details for this edit. This method supports patch semantics.",
+            "description": "Updates app details for this edit. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_details_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_details_update": {
+            "main": "./lib/actions/androidpublisher_edits_details_update.js",
+            "title": "Updates app details for this edit.",
+            "description": "Updates app details for this edit.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_details_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_listings_deleteall": {
+            "main": "./lib/actions/androidpublisher_edits_listings_deleteall.js",
+            "title": "Deletes all localized listings from an edit.",
+            "description": "Deletes all localized listings from an edit.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_listings_deleteall.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_listings_list": {
+            "main": "./lib/actions/androidpublisher_edits_listings_list.js",
+            "title": "Returns all of the localized store listings attached to this edit.",
+            "description": "Returns all of the localized store listings attached to this edit.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_listings_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_listings_delete": {
+            "main": "./lib/actions/androidpublisher_edits_listings_delete.js",
+            "title": "Deletes the specified localized store listing from an edit.",
+            "description": "Deletes the specified localized store listing from an edit.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_listings_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_listings_get": {
+            "main": "./lib/actions/androidpublisher_edits_listings_get.js",
+            "title": "Fetches information about a localized store listing.",
+            "description": "Fetches information about a localized store listing.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_listings_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_listings_patch": {
+            "main": "./lib/actions/androidpublisher_edits_listings_patch.js",
+            "title": "Creates or updates a localized store listing. This method supports patch semantics.",
+            "description": "Creates or updates a localized store listing. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_listings_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_listings_update": {
+            "main": "./lib/actions/androidpublisher_edits_listings_update.js",
+            "title": "Creates or updates a localized store listing.",
+            "description": "Creates or updates a localized store listing.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_listings_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_images_deleteall": {
+            "main": "./lib/actions/androidpublisher_edits_images_deleteall.js",
+            "title": "Deletes all images for the specified language and image type.",
+            "description": "Deletes all images for the specified language and image type.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_images_deleteall.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_images_list": {
+            "main": "./lib/actions/androidpublisher_edits_images_list.js",
+            "title": "Lists all images for the specified language and image type.",
+            "description": "Lists all images for the specified language and image type.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_images_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_images_upload": {
+            "main": "./lib/actions/androidpublisher_edits_images_upload.js",
+            "title": "Uploads a new image and adds it to the list of images for the specified language and image type.",
+            "description": "Uploads a new image and adds it to the list of images for the specified language and image type.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_images_upload.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_images_delete": {
+            "main": "./lib/actions/androidpublisher_edits_images_delete.js",
+            "title": "Deletes the image (specified by id) from the edit.",
+            "description": "Deletes the image (specified by id) from the edit.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_images_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_testers_get": {
+            "main": "./lib/actions/androidpublisher_edits_testers_get.js",
+            "title": "androidpublisher_edits_testers_get",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_testers_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_testers_patch": {
+            "main": "./lib/actions/androidpublisher_edits_testers_patch.js",
+            "title": "androidpublisher_edits_testers_patch",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_testers_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_testers_update": {
+            "main": "./lib/actions/androidpublisher_edits_testers_update.js",
+            "title": "androidpublisher_edits_testers_update",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_testers_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_tracks_list": {
+            "main": "./lib/actions/androidpublisher_edits_tracks_list.js",
+            "title": "Lists all the track configurations for this edit.",
+            "description": "Lists all the track configurations for this edit.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_tracks_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_tracks_get": {
+            "main": "./lib/actions/androidpublisher_edits_tracks_get.js",
+            "title": "Fetches the track configuration for the specified track type. Includes the APK version codes that are in this track.",
+            "description": "Fetches the track configuration for the specified track type. Includes the APK version codes that are in this track.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_tracks_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_tracks_patch": {
+            "main": "./lib/actions/androidpublisher_edits_tracks_patch.js",
+            "title": "Updates the track configuration for the specified track type. When halted, the rollout track cannot be updated without adding new APKs, and adding new APKs will cause it to resume. This method supports patch semantics.",
+            "description": "Updates the track configuration for the specified track type. When halted, the rollout track cannot be updated without adding new APKs, and adding new APKs will cause it to resume. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_tracks_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_tracks_update": {
+            "main": "./lib/actions/androidpublisher_edits_tracks_update.js",
+            "title": "Updates the track configuration for the specified track type. When halted, the rollout track cannot be updated without adding new APKs, and adding new APKs will cause it to resume.",
+            "description": "Updates the track configuration for the specified track type. When halted, the rollout track cannot be updated without adding new APKs, and adding new APKs will cause it to resume.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_tracks_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_commit": {
+            "main": "./lib/actions/androidpublisher_edits_commit.js",
+            "title": "Commits/applies the changes made in this edit back to the app.",
+            "description": "Commits/applies the changes made in this edit back to the app.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_commit.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_edits_validate": {
+            "main": "./lib/actions/androidpublisher_edits_validate.js",
+            "title": "Checks that the edit can be successfully committed. The edit's changes are not applied to the live app.",
+            "description": "Checks that the edit can be successfully committed. The edit's changes are not applied to the live app.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_edits_validate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_inappproducts_list": {
+            "main": "./lib/actions/androidpublisher_inappproducts_list.js",
+            "title": "List all the in-app products for an Android app, both subscriptions and managed in-app products..",
+            "description": "List all the in-app products for an Android app, both subscriptions and managed in-app products..",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_inappproducts_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_inappproducts_insert": {
+            "main": "./lib/actions/androidpublisher_inappproducts_insert.js",
+            "title": "Creates a new in-app product for an app.",
+            "description": "Creates a new in-app product for an app.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_inappproducts_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_inappproducts_delete": {
+            "main": "./lib/actions/androidpublisher_inappproducts_delete.js",
+            "title": "Delete an in-app product for an app.",
+            "description": "Delete an in-app product for an app.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_inappproducts_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_inappproducts_get": {
+            "main": "./lib/actions/androidpublisher_inappproducts_get.js",
+            "title": "Returns information about the in-app product specified.",
+            "description": "Returns information about the in-app product specified.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_inappproducts_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_inappproducts_patch": {
+            "main": "./lib/actions/androidpublisher_inappproducts_patch.js",
+            "title": "Updates the details of an in-app product. This method supports patch semantics.",
+            "description": "Updates the details of an in-app product. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_inappproducts_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_inappproducts_update": {
+            "main": "./lib/actions/androidpublisher_inappproducts_update.js",
+            "title": "Updates the details of an in-app product.",
+            "description": "Updates the details of an in-app product.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_inappproducts_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_orders_refund": {
+            "main": "./lib/actions/androidpublisher_orders_refund.js",
+            "title": "Refund a user's subscription or in-app purchase order.",
+            "description": "Refund a user's subscription or in-app purchase order.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_orders_refund.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_purchases_products_get": {
+            "main": "./lib/actions/androidpublisher_purchases_products_get.js",
+            "title": "Checks the purchase and consumption status of an inapp item.",
+            "description": "Checks the purchase and consumption status of an inapp item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_purchases_products_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_purchases_subscriptions_get": {
+            "main": "./lib/actions/androidpublisher_purchases_subscriptions_get.js",
+            "title": "Checks whether a user's subscription purchase is valid and returns its expiry time.",
+            "description": "Checks whether a user's subscription purchase is valid and returns its expiry time.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_purchases_subscriptions_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_purchases_subscriptions_cancel": {
+            "main": "./lib/actions/androidpublisher_purchases_subscriptions_cancel.js",
+            "title": "Cancels a user's subscription purchase. The subscription remains valid until its expiration time.",
+            "description": "Cancels a user's subscription purchase. The subscription remains valid until its expiration time.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_purchases_subscriptions_cancel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_purchases_subscriptions_defer": {
+            "main": "./lib/actions/androidpublisher_purchases_subscriptions_defer.js",
+            "title": "Defers a user's subscription purchase until a specified future expiration time.",
+            "description": "Defers a user's subscription purchase until a specified future expiration time.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_purchases_subscriptions_defer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_purchases_subscriptions_refund": {
+            "main": "./lib/actions/androidpublisher_purchases_subscriptions_refund.js",
+            "title": "Refunds a user's subscription purchase, but the subscription remains valid until its expiration time and it will continue to recur.",
+            "description": "Refunds a user's subscription purchase, but the subscription remains valid until its expiration time and it will continue to recur.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_purchases_subscriptions_refund.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_purchases_subscriptions_revoke": {
+            "main": "./lib/actions/androidpublisher_purchases_subscriptions_revoke.js",
+            "title": "Refunds and immediately revokes a user's subscription purchase. Access to the subscription will be terminated immediately and it will stop recurring.",
+            "description": "Refunds and immediately revokes a user's subscription purchase. Access to the subscription will be terminated immediately and it will stop recurring.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_purchases_subscriptions_revoke.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_purchases_voidedpurchases_list": {
+            "main": "./lib/actions/androidpublisher_purchases_voidedpurchases_list.js",
+            "title": "Lists the purchases that were canceled, refunded or charged-back.",
+            "description": "Lists the purchases that were canceled, refunded or charged-back.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_purchases_voidedpurchases_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_reviews_list": {
+            "main": "./lib/actions/androidpublisher_reviews_list.js",
+            "title": "Returns a list of reviews. Only reviews from last week will be returned.",
+            "description": "Returns a list of reviews. Only reviews from last week will be returned.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_reviews_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_reviews_get": {
+            "main": "./lib/actions/androidpublisher_reviews_get.js",
+            "title": "Returns a single review.",
+            "description": "Returns a single review.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_reviews_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "androidpublisher_reviews_reply": {
+            "main": "./lib/actions/androidpublisher_reviews_reply.js",
+            "title": "Reply to a single review, or update an existing reply.",
+            "description": "Reply to a single review, or update an existing reply.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/androidpublisher_reviews_reply.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

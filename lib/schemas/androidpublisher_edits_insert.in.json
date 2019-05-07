@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "packageName": {
+            "required": true,
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Represents an edit of an app. An edit allows clients to make multiple changes before committing them in one operation.",
+            "properties": {
+                "expiryTimeSeconds": {
+                    "description": "The time at which the edit will expire and will be no longer valid for use in any subsequent API calls (encoded as seconds since the Epoch).",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The ID of the edit that can be used in subsequent API calls.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

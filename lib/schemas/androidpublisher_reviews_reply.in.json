@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "packageName": {
+            "required": true,
+            "type": "string"
+        },
+        "reviewId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "replyText": {
+                    "description": "The text to set as the reply. Replies of more than approximately 350 characters will be rejected. HTML tags will be stripped.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

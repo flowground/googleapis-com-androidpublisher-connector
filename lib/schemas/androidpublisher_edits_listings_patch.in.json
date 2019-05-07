@@ -1,0 +1,55 @@
+{
+    "type": "object",
+    "properties": {
+        "editId": {
+            "required": true,
+            "type": "string"
+        },
+        "language": {
+            "required": true,
+            "type": "string"
+        },
+        "packageName": {
+            "required": true,
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "fullDescription": {
+                    "description": "Full description of the app; this may be up to 4000 characters in length.",
+                    "type": "string"
+                },
+                "language": {
+                    "description": "Language localization code (for example, \"de-AT\" for Austrian German).",
+                    "type": "string"
+                },
+                "shortDescription": {
+                    "description": "Short description of the app (previously known as promo text); this may be up to 80 characters in length.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "App's localized title.",
+                    "type": "string"
+                },
+                "video": {
+                    "description": "URL of a promotional YouTube video for the app.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

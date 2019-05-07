@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "properties": {
+        "apkVersionCode": {
+            "required": true,
+            "type": "integer"
+        },
+        "editId": {
+            "required": true,
+            "type": "string"
+        },
+        "expansionFileType": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "main",
+                "patch"
+            ]
+        },
+        "packageName": {
+            "required": true,
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "fileSize": {
+                    "description": "If set this field indicates that this APK has an Expansion File uploaded to it: this APK does not reference another APK's Expansion File. The field's value is the size of the uploaded Expansion File in bytes.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "referencesVersion": {
+                    "description": "If set this APK's Expansion File references another APK's Expansion File. The file_size field will not be set.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

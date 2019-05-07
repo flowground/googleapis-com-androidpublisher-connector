@@ -1,0 +1,189 @@
+{
+    "type": "object",
+    "properties": {
+        "autoConvertMissingPrices": {
+            "type": "boolean"
+        },
+        "packageName": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "defaultLanguage": {
+                    "description": "The default language of the localized data, as defined by BCP 47. e.g. \"en-US\", \"en-GB\".",
+                    "type": "string"
+                },
+                "defaultPrice": {
+                    "description": "Default price cannot be zero. In-app products can never be free. Default price is always in the developer's Checkout merchant currency.",
+                    "properties": {
+                        "currency": {
+                            "description": "3 letter Currency code, as defined by ISO 4217.",
+                            "type": "string"
+                        },
+                        "priceMicros": {
+                            "description": "The price in millionths of the currency base unit represented as a string.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "gracePeriod": {
+                    "description": "Grace period of the subscription, specified in ISO 8601 format. It will allow developers to give their subscribers a grace period when the payment for the new recurrence period is declined. Acceptable values = \"P3D\" (three days) and \"P7D\" (seven days)",
+                    "type": "string"
+                },
+                "listings": {
+                    "additionalProperties": {
+                        "description": "The language of the localized data, as defined by BCP 47. i.e.: \"en-US\", \"en-GB\".",
+                        "properties": {
+                            "description": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "description": "List of localized title and description data.",
+                    "type": "object"
+                },
+                "packageName": {
+                    "description": "The package name of the parent app.",
+                    "type": "string"
+                },
+                "prices": {
+                    "additionalProperties": {
+                        "description": "Region code, as defined by ISO 3166-2.",
+                        "properties": {
+                            "currency": {
+                                "description": "3 letter Currency code, as defined by ISO 4217.",
+                                "type": "string"
+                            },
+                            "priceMicros": {
+                                "description": "The price in millionths of the currency base unit represented as a string.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "description": "Prices per buyer region. None of these prices should be zero. In-app products can never be free.",
+                    "type": "object"
+                },
+                "purchaseType": {
+                    "description": "Purchase type enum value. Unmodifiable after creation.",
+                    "type": "string"
+                },
+                "season": {
+                    "description": "Definition of a season for a seasonal subscription. Can be defined only for yearly subscriptions.",
+                    "properties": {
+                        "end": {
+                            "description": "Inclusive end date of the recurrence period.",
+                            "properties": {
+                                "day": {
+                                    "description": "Day of a month, value in [1, 31] range. Valid range depends on the specified month.",
+                                    "format": "uint32",
+                                    "type": "integer"
+                                },
+                                "month": {
+                                    "description": "Month of a year. e.g. 1 = JAN, 2 = FEB etc.",
+                                    "format": "uint32",
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "prorations": {
+                            "description": "Optionally present list of prorations for the season. Each proration is a one-off discounted entry into a subscription. Each proration contains the first date on which the discount is available and the new pricing information.",
+                            "items": {
+                                "properties": {
+                                    "defaultPrice": {
+                                        "description": "Default price cannot be zero and must be less than the full subscription price. Default price is always in the developer's Checkout merchant currency. Targeted countries have their prices set automatically based on the default_price.",
+                                        "properties": {
+                                            "currency": {
+                                                "description": "3 letter Currency code, as defined by ISO 4217.",
+                                                "type": "string"
+                                            },
+                                            "priceMicros": {
+                                                "description": "The price in millionths of the currency base unit represented as a string.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "start": {
+                                        "description": "Defines the first day on which the price takes effect.",
+                                        "properties": {
+                                            "day": {
+                                                "description": "Day of a month, value in [1, 31] range. Valid range depends on the specified month.",
+                                                "format": "uint32",
+                                                "type": "integer"
+                                            },
+                                            "month": {
+                                                "description": "Month of a year. e.g. 1 = JAN, 2 = FEB etc.",
+                                                "format": "uint32",
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "start": {
+                            "description": "Inclusive start date of the recurrence period.",
+                            "properties": {
+                                "day": {
+                                    "description": "Day of a month, value in [1, 31] range. Valid range depends on the specified month.",
+                                    "format": "uint32",
+                                    "type": "integer"
+                                },
+                                "month": {
+                                    "description": "Month of a year. e.g. 1 = JAN, 2 = FEB etc.",
+                                    "format": "uint32",
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "sku": {
+                    "description": "The stock-keeping-unit (SKU) of the product, unique within an app.",
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "subscriptionPeriod": {
+                    "description": "Subscription period, specified in ISO 8601 format. Acceptable values are \"P1W\" (one week), \"P1M\" (one month), \"P3M\" (three months), \"P6M\" (six months), and \"P1Y\" (one year).",
+                    "type": "string"
+                },
+                "trialPeriod": {
+                    "description": "Trial period, specified in ISO 8601 format. Acceptable values are anything between \"P7D\" (seven days) and \"P999D\" (999 days). Seasonal subscriptions cannot have a trial period.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

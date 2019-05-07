@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "endTime": {
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer"
+        },
+        "packageName": {
+            "required": true,
+            "type": "string"
+        },
+        "startIndex": {
+            "type": "integer"
+        },
+        "startTime": {
+            "type": "string"
+        },
+        "token": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

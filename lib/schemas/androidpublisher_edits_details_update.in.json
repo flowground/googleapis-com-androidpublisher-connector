@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "properties": {
+        "editId": {
+            "required": true,
+            "type": "string"
+        },
+        "packageName": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "contactEmail": {
+                    "description": "The user-visible support email for this app.",
+                    "type": "string"
+                },
+                "contactPhone": {
+                    "description": "The user-visible support telephone number for this app.",
+                    "type": "string"
+                },
+                "contactWebsite": {
+                    "description": "The user-visible website for this app.",
+                    "type": "string"
+                },
+                "defaultLanguage": {
+                    "description": "Default language code, in BCP 47 format (eg \"en-US\").",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

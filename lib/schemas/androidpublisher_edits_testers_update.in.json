@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "editId": {
+            "required": true,
+            "type": "string"
+        },
+        "packageName": {
+            "required": true,
+            "type": "string"
+        },
+        "track": {
+            "required": true,
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "googleGroups": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "googlePlusCommunities": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "apkVersionCode": {
+            "required": true,
+            "type": "integer"
+        },
+        "deobfuscationFileType": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "proguard"
+            ]
+        },
+        "editId": {
+            "required": true,
+            "type": "string"
+        },
+        "packageName": {
+            "required": true,
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}
